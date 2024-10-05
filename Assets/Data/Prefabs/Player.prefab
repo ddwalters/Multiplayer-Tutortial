@@ -2029,7 +2029,10 @@ GameObject:
   - component: {fileID: 8449332006172568189}
   - component: {fileID: 7891490527592822525}
   - component: {fileID: 7277486127255819336}
-  - component: {fileID: 7377146499105941117}
+  - component: {fileID: 6970058649245641112}
+  - component: {fileID: 2161268141698726461}
+  - component: {fileID: 4095795037058771158}
+  - component: {fileID: 4168181702639186839}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2096,7 +2099,7 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &7377146499105941117
+--- !u!114 &6970058649245641112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2105,6 +2108,66 @@ MonoBehaviour:
   m_GameObject: {fileID: 9082034343663202503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61dc73c3b688c1448770d227f8e4af2, type: 3}
+  m_Script: {fileID: 11500000, guid: 04a22469c55c6eb48b9af4ca1290eba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterController: {fileID: 0}
+--- !u!114 &2161268141698726461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082034343663202503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36738fc8509353345ab344bc71ecc043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkPosition:
+    m_InternalValue: {x: 0, y: 0, z: 0}
+  networkPositionVelocity: {x: 0, y: 0, z: 0}
+  networkPositionSmoothTime: 0.1
+--- !u!114 &4095795037058771158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082034343663202503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a10e9bbcbca7ef42989a204e3f2e495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalMovement: 0
+  horizontalMovement: 0
+  moveAmount: 0
+  walkingSpeed: 2
+  runningSpeed: 5
+--- !u!143 &4168181702639186839
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9082034343663202503}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.8
+  m_Radius: 0.23
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.9, z: 0}

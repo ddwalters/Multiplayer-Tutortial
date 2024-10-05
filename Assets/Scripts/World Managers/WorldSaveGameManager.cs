@@ -29,4 +29,6 @@ public class WorldSaveGameManager : MonoBehaviour
 
         yield return null;
     }
+
+    public int GetWorldSceneIndex() => worldSceneIndex;
 }
