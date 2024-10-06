@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerManager : CharacterManager
 {
-    PlayerLocomotionManager playerLocomotionManager;
+    [HideInInspector]public PlayerAnimatorManager playerAnimatorManager;
+    [HideInInspector]public PlayerLocomotionManager playerLocomotionManager;
+
     protected override void Awake()
     {
         base.Awake();
 
         playerLocomotionManager = GetComponent<PlayerLocomotionManager>();
+        playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
     }
 
     protected override void Update()
@@ -20,5 +23,27 @@ public class PlayerManager : CharacterManager
             return;
 
         playerLocomotionManager.HandleAllMovement();
+    }
+
+    protected override void LateUpdate()
+    {
+        base.LateUpdate();
+
+        if (!IsOwner)
+            return;
+
+        PlayerCamera.instance.HandleAllCameraActions();
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+
+        // Owned by local client
+        if (IsOwner)
+        {
+            PlayerCamera.instance.player = this;
+            PlayerInputManager.instance.player = this;
+        }
     }
 }

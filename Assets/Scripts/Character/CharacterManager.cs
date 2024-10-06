@@ -6,9 +6,16 @@ using UnityEngine;
 
 public class CharacterManager : NetworkBehaviour
 {
-    public CharacterController characterController;
+    [HideInInspector]public CharacterController characterController;
+    [HideInInspector]public Animator animator;
 
-    CharacterNetworkManager characterNetworkManager;
+    [HideInInspector]public CharacterNetworkManager characterNetworkManager;
+
+    [Header("Flags")]
+    public bool isPerformingAction = false;
+    public bool applyRootMotion = false;
+    public bool canRotate = true;
+    public bool canMove = true;
 
     protected virtual void Awake()
     {
@@ -16,6 +23,7 @@ public class CharacterManager : NetworkBehaviour
 
         characterController = GetComponent<CharacterController>();
         characterNetworkManager = GetComponent<CharacterNetworkManager>();
+        animator = GetComponent<Animator>();
     }
 
     protected virtual void Update()
@@ -38,5 +46,10 @@ public class CharacterManager : NetworkBehaviour
                 characterNetworkManager.networkRotation.Value, 
                 characterNetworkManager.networkRotationSmoothTime);
         }
+    }
+
+    protected virtual void LateUpdate()
+    { 
+        
     }
 }
